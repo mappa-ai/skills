@@ -1,0 +1,78 @@
+[
+	{
+		"query": "I'm wiring Conduit into a Next.js app for the first time. Upload the recording, target the interviewed person, and show me the webhook route that verifies the raw body before parsing.",
+		"should_trigger": true
+	},
+	{
+		"query": "My FastAPI service needs its first Conduit integration. Use Python, upload the call, target the interviewed person, and fetch the completed report from the webhook handler.",
+		"should_trigger": true
+	},
+	{
+		"query": "We use Go with net/http. Give me the first Conduit report flow with media upload, target hinting for the interviewed person, signature verification, and reports.get after report.completed.",
+		"should_trigger": true
+	},
+	{
+		"query": "Port our first Conduit TypeScript report integration to Rust axum and keep the webhook-first flow.",
+		"should_trigger": true
+	},
+	{
+		"query": "I already upload calls to Conduit separately. Show me the Python flow that reuses media_id and targets the interviewed person.",
+		"should_trigger": true
+	},
+	{
+		"query": "Compare one candidate against a hiring panel in Mappa Conduit using the Go SDK and keep the stable matching context.",
+		"should_trigger": true
+	},
+	{
+		"query": "I need a browser TypeScript example for Conduit. Call out anything dangerous or unsupported before you show code.",
+		"should_trigger": true
+	},
+	{
+		"query": "We already have uploaded interview media in Conduit. In TypeScript, pick the interviewed person with a natural-language hint and create the report.",
+		"should_trigger": true
+	},
+	{
+		"query": "Show me the Rust flow for uploading a panel interview to Conduit and analyzing only the interviewed person, not the interviewer.",
+		"should_trigger": true
+	},
+	{
+		"query": "Help me wire Stripe webhooks for subscription billing in my Next.js route.",
+		"should_trigger": false
+	},
+	{
+		"query": "Build a FastAPI endpoint that transcribes calls and summarizes them with OpenAI.",
+		"should_trigger": false
+	},
+	{
+		"query": "I need a generic webhook handler template for report.completed events from our internal CRM.",
+		"should_trigger": false
+	},
+	{
+		"query": "Upload this mp3 and pick the interviewed person for downstream analysis in our own transcription service.",
+		"should_trigger": false
+	},
+	{
+		"query": "Use TypeScript to add Svix webhook verification to my Hono app.",
+		"should_trigger": false
+	},
+	{
+		"query": "Fix my Cargo workspace task graph.",
+		"should_trigger": false
+	},
+	{
+		"query": "Write a generic Python script that uploads files to S3.",
+		"should_trigger": false
+	},
+	{
+		"query": "How do I build a speech-to-text API in Node?",
+		"should_trigger": false
+	},
+	{
+		"query": "Set up a Turborepo pipeline for lint and typecheck.",
+		"should_trigger": false
+	},
+	{
+		"query": "Design a hiring scorecard service in Go that compares a candidate to a panel and stores the result in Postgres.",
+		"should_trigger": false
+	}
+]
