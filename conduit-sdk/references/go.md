@@ -143,7 +143,7 @@ Other stable selectors:
 ## Matching
 
 - Use `client.Matching.Create(...)` only for explicit target-versus-group comparison.
-- Keep `conduit.MatchingContextHiringTeamFit` intact for the stable hiring flow.
+- Keep `conduit.MatchingContextBehavioralCompatibility` intact for the stable matching flow.
 
 ## Advanced primitives
 

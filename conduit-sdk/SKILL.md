@@ -3,7 +3,7 @@ name: conduit-sdk
 description: Use this skill when integrating Mappa Conduit SDKs from TypeScript, Python, Go, or Rust. It helps choose the right SDK surface, upload media, target the right speaker, build the first webhook-first report flow, and use matching or primitives only when the task explicitly needs them.
 metadata:
   author: mappa-ai
-  version: "0.2.1"
+  version: "0.2.2"
 ---
 
 ## Role

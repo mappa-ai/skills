@@ -23,13 +23,13 @@ Conduit has two primary stable workflows:
 
 Create calls are receipt-first and asynchronous. They resolve source handling, upload when needed, accept the job, and return a receipt. They do not wait for the final report or matching result.
 
-Canonical naming is semantic, not language-specific. Keep `receipt`, `report.completed`, `matching.completed`, `general_report`, `sales_playbook`, and `hiring_team_fit` intact across languages. Casing may change to fit the language, but business names do not.
+Canonical naming is semantic, not language-specific. Keep `receipt`, `report.completed`, `matching.completed`, `general_report`, `sales_playbook`, and `behavioral_compatibility` intact across languages. Casing may change to fit the language, but business names do not.
 
 ## Workflow chooser
 
 - Use `reports.create(...)` for one-speaker analysis and for the default first integration.
 - Use `matching.create(...)` when the user wants a target-versus-group comparison.
-- Treat `hiring_team_fit` as the current stable matching context unless the product spec changes.
+- Treat `behavioral_compatibility` as the current stable matching context unless the product spec changes.
 - Use `primitives.media.upload(...)` when the caller wants to upload once and reuse a `media_id` later.
 - Use `primitives.jobs.get(...)` or cancel helpers only when the caller needs job inspection or cancellation.
 - Use `primitives.entities.*` only for stable entity management and backoffice flows.

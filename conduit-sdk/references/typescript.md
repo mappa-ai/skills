@@ -139,7 +139,7 @@ Prefer the SDK helpers for typed handling:
 ## Matching
 
 - Use `conduit.matching.create(...)` only when the user explicitly needs target-versus-group comparison.
-- Keep `hiring_team_fit` intact when the user is doing the stable hiring comparison flow.
+- Keep `behavioral_compatibility` intact when the user is doing the stable matching flow.
 
 ## Advanced primitives
 
