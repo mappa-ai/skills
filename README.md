@@ -1,74 +1,58 @@
-# Mappa Conduit SDK Skill
+# Mappa skills
 
-`conduit-sdk` is the canonical agent skill for integrating Mappa Conduit SDKs.
+Monorepo of **Agent Skills** for development workflows and Mappa product integrations. Skills are packaged as directories containing `SKILL.md` (agent instructions) and, for humans browsing the repo, `README.md` (detailed overview).
 
-The default path is intentionally simple: upload media, create a report from `media_id`, target the interviewed person with `magic_hint`, and receive the final report by webhook.
+## Layout
 
-Use it when an agent needs to add Conduit to a TypeScript, Python, Go, or Rust codebase, choose the right SDK surface, upload media, target the right speaker, wire the first webhook-first report flow, and stay on documented APIs.
+| Directory | Purpose |
+|-----------|---------|
+| [utils-skills/](utils-skills/) | Cross-cutting skills for planning, execution, ecosystem discovery, and tooling (e.g. PRs, CodeRabbit). |
+| [internal-skills/](internal-skills/) | Mappa-internal product skills (e.g. Conduit SDK integration). |
 
-## Name
+## Skills index
 
-- Human-facing name: `Mappa Conduit SDK Skill`
-- Skill id: `conduit-sdk`
-- Recommended slash command: `/conduit-sdk`
+### Utils
 
-Keep the id short and obvious. Top skills win on discoverability, not clever naming.
+| Skill | Summary | Human doc |
+|-------|---------|-----------|
+| `find-skills` | Discover and vet skills on skills.sh; install via `npx skills`. | [utils-skills/find-skills/README.md](utils-skills/find-skills/README.md) |
+| `grill-me` | One-question-at-a-time design stress-test with recommendations. | [utils-skills/grill-me/README.md](utils-skills/grill-me/README.md) |
+| `write-a-skill` | Author new skills: structure, descriptions, progressive disclosure. | [utils-skills/write-a-skill/README.md](utils-skills/write-a-skill/README.md) |
+| `handle-coderabbit` | Triage and fix CodeRabbit PR comments with `gh`, validate, commit. | [utils-skills/handle-coderabbit/README.md](utils-skills/handle-coderabbit/README.md) |
+| `do-work` | End-to-end unit of work: implement, typecheck/test, commit. | [utils-skills/do-work/README.md](utils-skills/do-work/README.md) |
+| `prd-to-plan` | Turn a PRD into phased tracer-bullet plans under `./plans/`. | [utils-skills/prd-to-plan/README.md](utils-skills/prd-to-plan/README.md) |
+| `write-a-prd` | Interview + explore repo, then write a PRD under `plans/`. | [utils-skills/write-a-prd/README.md](utils-skills/write-a-prd/README.md) |
 
-## What it helps with
+### Internal
 
-- First-time Conduit SDK integrations
-- Upload media once and reuse `media_id`
-- Select one person from uploaded media with `magic_hint`, for example `the interviewed person`
-- Framework-aware webhook handlers for Next.js, FastAPI, `net/http`, and `axum`
-- Safe raw-body signature verification
-- `reports`-first onboarding with one strong default instead of many branching flows
-- Ports and migrations between Conduit SDK languages
+| Skill | Summary | Human doc |
+|-------|---------|-----------|
+| `conduit-sdk` | Integrate Mappa Conduit SDKs (TS, Python, Go, Rust); webhooks-first. | [internal-skills/conduit-sdk/README.md](internal-skills/conduit-sdk/README.md) |
 
-## Install With skills.sh
+## Install with `npx skills`
 
-For any agent that supports Agent Skills through `skills.sh`, install the skill from the public skills repo:
+Replace the URL with your fork if needed. The `--skill` value is the **path from the repo root** to the skill directory.
 
 ```bash
-npx skills add https://github.com/mappa-ai/skills --skill conduit-sdk
+# Example: Conduit SDK
+npx skills add https://github.com/mappa-ai/skills --skill internal-skills/conduit-sdk
+
+# Example: a util skill
+npx skills add https://github.com/mappa-ai/skills --skill utils-skills/do-work
 ```
 
-After install, verify it is available in your agent by:
+**Breaking change:** Older docs used `--skill conduit-sdk` when the skill lived at the repository root. After this layout change, use `internal-skills/conduit-sdk` (or vendor the folder under the name your tool expects).
 
-- asking what skills are available
-- invoking `/conduit-sdk` directly if your agent exposes slash commands
-- giving the agent a first-time Conduit integration prompt and checking that it loads the skill
+## Validate locally
 
-## Example prompts
+CI uses `uv` and `agentskills validate`. Equivalent local check:
 
-```text
-Add Mappa Conduit to my FastAPI app. Upload the interview recording, target the interviewed person, and show the verified webhook flow.
+```bash
+uvx --from skills-ref agentskills validate internal-skills/conduit-sdk
+# Optional: validate each util skill
+for d in utils-skills/*/; do uvx --from skills-ref agentskills validate "${d%/}"; done
 ```
 
-```text
-Add Mappa Conduit to my Next.js app. Upload the interview recording, target the interviewed person, and fetch the final report from the webhook flow.
-```
+## Contributing
 
-```text
-Port this Conduit TypeScript integration to Rust axum and keep the webhook-first flow.
-```
-
-```text
-I already upload recordings separately. Show me how to create a Conduit report from media_id in Python and target the interviewed person.
-```
-
-```text
-Compare one candidate against a hiring panel in Conduit using Go and keep the stable matching context.
-```
-
-## Included references
-
-- `conduit-sdk/SKILL.md` - routing and integration policy
-- `conduit-sdk/references/common.md` - shared onboarding guidance
-- `conduit-sdk/references/typescript.md` - TypeScript and Next.js-oriented usage
-- `conduit-sdk/references/python.md` - Python and FastAPI-oriented usage
-- `conduit-sdk/references/go.md` - Go and `net/http`-oriented usage
-- `conduit-sdk/references/rust.md` - Rust and `axum`-oriented usage
-
-## Versioning
-
-The skill version is tracked in `conduit-sdk/SKILL.md` metadata and mirrored from the private source repo.
+Add new skills under the appropriate subtree, include both `SKILL.md` and `README.md`, and extend the tables in this file.
