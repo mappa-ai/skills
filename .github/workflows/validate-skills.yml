@@ -27,6 +27,7 @@ jobs:
           - utils-skills/do-work
           - utils-skills/prd-to-plan
           - utils-skills/write-a-prd
+          - utils-skills/refine-linear-issue
     steps:
       - uses: actions/checkout@v4
 
