@@ -22,6 +22,7 @@ Monorepo of **Agent Skills** for development workflows and Mappa product integra
 | `do-work` | End-to-end unit of work: implement, typecheck/test, commit. | [utils-skills/do-work/README.md](utils-skills/do-work/README.md) |
 | `prd-to-plan` | Turn a PRD into phased tracer-bullet plans under `./plans/`. | [utils-skills/prd-to-plan/README.md](utils-skills/prd-to-plan/README.md) |
 | `write-a-prd` | Interview + explore repo, then write a PRD under `plans/`. | [utils-skills/write-a-prd/README.md](utils-skills/write-a-prd/README.md) |
+| `bun-integration-tests` | Set up Bun integration test infrastructure for TypeScript repos. | [utils-skills/bun-integration-tests/README.md](utils-skills/bun-integration-tests/README.md) |
 
 ### Internal
 
