@@ -1,14 +1,6 @@
 ---
 name: bun-integration-tests
-description: |
-  Set up Bun integration test infrastructure for TypeScript repos. Use whenever:
-  adding integration tests to a repo that doesn't have them, setting up test
-  infrastructure from scratch, asking how to structure tests, or applying the
-  integration test pattern to a new project.
-
-  Default stack: Prisma + Elysia + bun:test. Adapts to Hono, Drizzle, or plain
-  fetch if detected. Covers setup.ts, TestContext, factory helpers, cleanup
-  chains, mock injection, and package.json scripts.
+description: Set up Bun integration test infrastructure for TypeScript repos. Use when adding integration tests or scaffolding test setup from scratch.
 ---
 
 # Bun Integration Test Setup
